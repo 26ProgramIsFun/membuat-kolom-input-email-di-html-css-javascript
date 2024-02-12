@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cara Membuat Kolom Email Keren</title>
+    <style>
+      /* Style untuk kolom email */
+      .email-input {
+          padding: 10px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          font-size: 16px;
+          width: 300px;
+          margin-bottom: 10px;
+      }
+    
+      /* Style untuk tombol submit */
+      .submit-btn {
+          background-color: rgb(123, 194, 126);
+          color: white;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          font-size: 16px;
+          transition: background-color 0.3s;
+      }
+    
+      .submit-btn:hover {
+          background-color: #34c13b;
+      }
+    
+      /* Style untuk label */
+      .label {
+          font-size: 18px;
+      }
+    
+      /* Style untuk form */
+      .form-container {
+          margin: auto;
+          width: 50%;
+          text-align: center;
+      }
+    
+      /* Style untuk pesan kesalahan */
+      .error-message {
+          color: red;
+          font-size: 14px;
+      }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+  <h2>Cara Membuat Kolom Email Keren</h2>
+  <p>Silakan masukkan alamat email Anda di bawah ini:</p>
+  <form id="emailForm" action="validasi.php">
+    <label for="email" class="label">Alamat Email:</label><br>
+    <input type="email" id="email" name="email" class="email-input"><br>
+    <span id="error" class="error-message"></span><br>
+    <input type="submit" class="submit-btn" value="Submit">
+  </form>
+</div>
+
+<script>
+    // JavaScript untuk validasi email sebelum pengiriman formulir
+    document.getElementById("emailForm").addEventListener("submit", function(event) {
+      var emailInput = document.getElementById("email");
+      var errorMessage = document.getElementById("error");
+      
+      if (!emailInput.checkValidity()) {
+        errorMessage.textContent = "Mohon masukkan alamat email yang valid.";
+        errorMessage.style.display = "block";
+        event.preventDefault();
+      } else {
+        errorMessage.style.display = "none";
+      }
+    });
+</script>
+
+</body>
+</html>
